@@ -1,11 +1,10 @@
+import Router from '../src/app/Router'
 
 function App() {
 
   return (
     <>
-      <p>pagina web, con un cúmulo de proyectos y cosas
-        
-      </p>
+    <Router/>
        
     </>
   )
