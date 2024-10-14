@@ -6,6 +6,7 @@
 
 import axios from "axios";
 
+
 const apiKey = 'd801d7cff4e032fae504d22d2d7dcf45';
 
 export const api = axios.create({
@@ -13,11 +14,23 @@ export const api = axios.create({
 });
 
 export const getPopularMovies = async () => {
-   
+
         const response = await api.get(`movie/popular?api_key=${apiKey}`);
         console.log(response)
         return response.data.results; 
     
+};
+
+export const getRandomMovie = async ()=>{
+    
+    const response = await axios.get('https://api.themoviedb.org/3/movie/popular?api_key=d801d7cff4e032fae504d22d2d7dcf45');
+
+    const movies = response.data.results
+
+    const randomIndex = Math.floor(Math.random()*response.data.results.length);
+
+    return movies[randomIndex];
+
 };
 
 

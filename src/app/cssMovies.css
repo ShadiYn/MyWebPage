@@ -1,33 +1,85 @@
 /* styles.css */
-.movie-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); /* Múltiples columnas */
+
+
+.container {
+    margin: 0 auto; /* Centrar el contenedor */
+    padding: 50px; /* Espaciado interno del contenedor */
+    background-color: #ffffff; /* Fondo blanco para el contenedor */
+    border-radius: 10px; /* Bordes redondeados */
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Sombra suave */
+}
+
+.movies-container {
+    display: flex; /* Usar flexbox para alinear elementos */
+    justify-content: space-between; /* Espaciado entre los elementos */
+    flex-wrap: wrap; /* Permitir que las tarjetas se envuelvan si es necesario */
+}
+
+.local-movies, .movie-grid {
+    flex: 1; /* Permitir que ambos se expandan igualmente */
+    margin: 10px; /* Margen alrededor de cada grid */
+    display: flex; /* Usar flexbox para alinear las tarjetas en fila */
+    flex-wrap: wrap; /* Permitir que las tarjetas se envuelvan */
     gap: 20px; /* Espacio entre las tarjetas */
 }
 
 .movie-card {
-    background-color: #f8f9fa; /* Color de fondo de la tarjeta */
-    border-radius: 15px; /* Bordes redondeados */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra para profundidad */
-    margin: 10px;
-    overflow: hidden; /* Para asegurarse de que no se salga la imagen */
-    transition: transform 0.2s; /* Transición para efectos de hover */
+    background-color: #fff; /* Fondo de tarjeta blanco */
+    border-radius: 10px; /* Bordes redondeados */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra más pronunciada */
+    transition: transform 0.3s, box-shadow 0.3s; /* Transiciones suaves */
+    overflow: hidden; /* Asegurarse de que no se desborden */
     width: 150px; /* Ancho de la tarjeta */
+    text-align: center; /* Centrar el texto */
 }
 
 .movie-card:hover {
-    transform: scale(1.50); /* Aumenta el tamaño al pasar el mouse */
+    transform: translateY(-5px); /* Desplazamiento suave al hacer hover */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Sombra más intensa al hacer hover */
 }
 
 .movie-card img {
     width: 100%; 
-    border-radius: 10px;
+    border-radius: 10px 10px 0 0; /* Bordes redondeados solo en la parte superior */
 }
 
 .movie-card-title {
-    padding: 15px; /* Espaciado interno */
-    text-align: center; /* Centra el texto */
-    font-weight: bold; /* Negrita para el título */
+    padding: 10px; /* Espaciado interno */
     color: #333; /* Color del texto */
-    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-weight: bold; /* Negrita para destacar el título */
+}
+
+h1 {
+    text-align: left; /* Centrar los títulos */
+    color: #333; /* Color del texto */
+    margin: 20px 0; /* Espaciado vertical alrededor del título */
+    font-size: 24px; /* Tamaño de fuente para los títulos */
+    text-transform: uppercase; /* Títulos en mayúsculas para un efecto destacado */
+}
+
+.movies-titles {
+    display: flex; /* Usar flexbox para alinear los títulos */
+    justify-content: space-between; /* Espaciado entre los títulos */
+    align-items: center; /* Centrar verticalmente */
+    margin-bottom: 20px; /* Espacio debajo del contenedor de títulos */
+}
+
+.title {
+    color: #333; /* Color del texto */
+    font-size: 24px; /* Tamaño de fuente para los títulos */
+    text-transform: uppercase; /* Títulos en mayúsculas para un efecto destacado */
+    flex: 1; /* Permitir que ambos títulos se expandan igualmente */
+    text-align: center; /* Centrar el texto dentro de cada título */
+}
+
+h1 {
+    margin: 0; /* Eliminar márgenes por defecto de h1 */
+}
+
+.api-movies{
+    text-align: right; /* Centrar los títulos */
+    color: #333; /* Color del texto */
+    margin: 20px 0; /* Espaciado vertical alrededor del título */
+    font-size: 24px; /* Tamaño de fuente para los títulos */
+    text-transform: uppercase;
 }
