@@ -1,0 +1,33 @@
+/* styles.css */
+.movie-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); /* Múltiples columnas */
+    gap: 20px; /* Espacio entre las tarjetas */
+}
+
+.movie-card {
+    background-color: #f8f9fa; /* Color de fondo de la tarjeta */
+    border-radius: 15px; /* Bordes redondeados */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra para profundidad */
+    margin: 10px;
+    overflow: hidden; /* Para asegurarse de que no se salga la imagen */
+    transition: transform 0.2s; /* Transición para efectos de hover */
+    width: 150px; /* Ancho de la tarjeta */
+}
+
+.movie-card:hover {
+    transform: scale(1.50); /* Aumenta el tamaño al pasar el mouse */
+}
+
+.movie-card img {
+    width: 100%; 
+    border-radius: 10px;
+}
+
+.movie-card-title {
+    padding: 15px; /* Espaciado interno */
+    text-align: center; /* Centra el texto */
+    font-weight: bold; /* Negrita para el título */
+    color: #333; /* Color del texto */
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
