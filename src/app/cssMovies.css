@@ -1,13 +1,16 @@
-/* styles.css */
+
+    /* styles.css */
 
 
 .container {
     margin: 0 auto; /* Centrar el contenedor */
     padding: 50px; /* Espaciado interno del contenedor */
-    background-color: #ffffff; /* Fondo blanco para el contenedor */
+    background-color: bisque;
     border-radius: 10px; /* Bordes redondeados */
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Sombra suave */
 }
+
+
 
 .movies-container {
     display: flex; /* Usar flexbox para alinear elementos */
@@ -24,18 +27,18 @@
 }
 
 .movie-card {
-    background-color: #fff; /* Fondo de tarjeta blanco */
+    background-color: rgb(141, 125, 105);
     border-radius: 10px; /* Bordes redondeados */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra más pronunciada */
+    box-shadow: 0 4px 8px rgba(133, 115, 115, 0.1); /* Sombra más pronunciada */
     transition: transform 0.3s, box-shadow 0.3s; /* Transiciones suaves */
     overflow: hidden; /* Asegurarse de que no se desborden */
-    width: 150px; /* Ancho de la tarjeta */
+    width: 250px; /* Ancho de la tarjeta */
     text-align: center; /* Centrar el texto */
 }
 
 .movie-card:hover {
-    transform: translateY(-5px); /* Desplazamiento suave al hacer hover */
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Sombra más intensa al hacer hover */
+    transform: translateY(-15px); /* Desplazamiento suave al hacer hover */
+    box-shadow: 0 8px 16px rgba(55, 6, 6, 0.2); /* Sombra más intensa al hacer hover */
 }
 
 .movie-card img {
@@ -45,7 +48,7 @@
 
 .movie-card-title {
     padding: 10px; /* Espaciado interno */
-    color: #333; /* Color del texto */
+    color: #ffffff; /* Color del texto */
     font-weight: bold; /* Negrita para destacar el título */
 }
 
@@ -64,6 +67,7 @@ h1 {
     margin-bottom: 20px; /* Espacio debajo del contenedor de títulos */
 }
 
+
 .title {
     color: #333; /* Color del texto */
     font-size: 24px; /* Tamaño de fuente para los títulos */
@@ -78,7 +82,7 @@ h1 {
 
 .api-movies{
     text-align: right; /* Centrar los títulos */
-    color: #333; /* Color del texto */
+    color: #a88383; /* Color del texto */
     margin: 20px 0; /* Espaciado vertical alrededor del título */
     font-size: 24px; /* Tamaño de fuente para los títulos */
     text-transform: uppercase;
