@@ -4,46 +4,132 @@
 
 .container {
     margin: 0 auto; /* Centrar el contenedor */
-    padding: 50px; /* Espaciado interno del contenedor */
+    padding: 60px; /* Espaciado interno del contenedor */
     background-color: bisque;
     border-radius: 10px; /* Bordes redondeados */
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Sombra suave */
 }
+.button {
+    display: inline-block;
+    padding: 15px 25px;
+    font-size: 15px;
+    cursor: pointer;
+    text-align: center;
+    text-decoration: none;
+    outline: none;
+    color: #fff;
+    background-color: #e0c28a;
+    border: none;
+    border-radius: 15px;
+    box-shadow: 0 9px #eee9e9;
+  }
+  
+  .button:hover {    background-color: #e0c28a;
+  }
+  
+  .button:active {
+    background-color: #e0c28a;
+    box-shadow: 0 5px #eee9e9;
+    transform: translateY(4px);
+  }
 
 
 
 .movies-container {
-    display: flex; /* Usar flexbox para alinear elementos */
-    justify-content: space-between; /* Espaciado entre los elementos */
-    flex-wrap: wrap; /* Permitir que las tarjetas se envuelvan si es necesario */
+    display: flex;
+    justify-content: space-between; 
+    flex-wrap: wrap;
 }
 
 .local-movies, .movie-grid {
-    flex: 1; /* Permitir que ambos se expandan igualmente */
-    margin: 10px; /* Margen alrededor de cada grid */
-    display: flex; /* Usar flexbox para alinear las tarjetas en fila */
-    flex-wrap: wrap; /* Permitir que las tarjetas se envuelvan */
-    gap: 20px; /* Espacio entre las tarjetas */
+    flex: 2;
+    margin: 50px; 
+    display: flex; 
+    flex-wrap: wrap; 
+    gap: 15px;
+}
+
+.card{
+    background-color: antiquewhite;
+    border-radius: 20px;
+    padding: 25px;
+    border: #333;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    
+    
+}
+
+.titulo{
+    text-align: center;
+    font-size: 25px;
+    
+}
+.lista ul{
+    list-style-type: none;
+    padding: 0px;
+    font-size: 15px;
+    padding-left: 25px;
+    background-color: #fff;
+    margin-top: 10px;
+    margin: 10px;
+    border-radius: 10px;
+    box-shadow: #ffffff;
+
+
+}
+.imagenYtitulo {
+    display: flex; /* Usar flexbox para alinear la imagen y el título */
+    align-items: center; /* Centrar verticalmente */
+    justify-content: center; /* Centrar horizontalmente */
+    margin: 20px 0; /* Espaciado superior e inferior */
+    background-color: rgba(228, 213, 193, 0.545); /* Fondo claro */
+    border-radius: 10px; /* Bordes redondeados */
+    padding: 15px; /* Espaciado interno */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5); /* Sombra suave */
+}
+
+.titulo {
+    font-size: 24px; /* Tamaño del texto */
+    color: #333; /* Color del texto */
+    margin-right: 50px; /* Espaciado entre el título y la imagen */
+    text-transform: uppercase; /* Títulos en mayúsculas */
+}
+
+
+.lista li {
+    list-style: none;
+    background: antiquewhite;
+    margin: 8px 0;
+    padding: 10px;
+    border-radius: 5px;
+    margin-left: 0px;
+    transition: background 0.3s;
+}
+
+.lista :hover{
+    background-color: rgb(228, 212, 192);
 }
 
 .movie-card {
     background-color: rgb(141, 125, 105);
-    border-radius: 10px; /* Bordes redondeados */
-    box-shadow: 0 4px 8px rgba(133, 115, 115, 0.1); /* Sombra más pronunciada */
-    transition: transform 0.3s, box-shadow 0.3s; /* Transiciones suaves */
-    overflow: hidden; /* Asegurarse de que no se desborden */
-    width: 250px; /* Ancho de la tarjeta */
-    text-align: center; /* Centrar el texto */
+    border-radius: 10px; 
+    box-shadow: 0 4px 8px rgba(133, 115, 115, 0.877);
+    transition: transform 0.3s, box-shadow 0.3s;
+    overflow: hidden; 
+    width: 250px;
+    text-align: center; 
 }
 
+
+
 .movie-card:hover {
-    transform: translateY(-15px); /* Desplazamiento suave al hacer hover */
-    box-shadow: 0 8px 16px rgba(55, 6, 6, 0.2); /* Sombra más intensa al hacer hover */
+    transform: translateY(-15px); 
+    box-shadow: 0 8px 16px rgba(55, 6, 6, 0.2); 
 }
 
 .movie-card img {
     width: 100%; 
-    border-radius: 10px 10px 0 0; /* Bordes redondeados solo en la parte superior */
+    border-radius: 10px 10px 0 0; 
 }
 
 .movie-card-title {

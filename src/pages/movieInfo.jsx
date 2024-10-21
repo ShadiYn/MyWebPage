@@ -63,26 +63,31 @@ const MovieInfo = () => {
                 
             </div>
             <div>
-                <p>Página 1</p>
-                <p>Consultar la API key de The Movie DB para mostrar las cosas</p>
-
-                <ul>
-                    <li>Página de inicio mostrando algunas de las películas de la API de TMDB---HECHO</li>
-                    <li>Luego una sub cardview o algo a la derecha mostrando películas de TMDB mediante un JSON.----HECHO</li>
-                    
-                    <li>Añadir un apartado para añadir o eliminar películas del JSON---HECHO (pero no se guardan)</li>
-                    <li>Poner de título centrando los créditos para TMDB/importante para poder usarlo correctamente---HECHO!!</li>
-                </ul>
-
-                <div>
-                                    <img src={img} width="100" height="100" />
+            <div class="card">
+            <div class="textos">
+                <div className='imagenYtitulo'>
+                                 <h2 className='titulo'>MOVIE-API</h2>
+                                 <img src={img} width="100" height="100" />
 
                 </div>
+                <ul className='lista'>
+                    <li>Página de inicio mostrando algunas de las películas de la API de TMDB---HECHO</li>
+                    <li>Luego una sub cardview o algo a la derecha mostrando películas de TMDB mediante un JSON.----HECHO</li>
+                    <li>Añadir un apartado para añadir o eliminar películas del JSON---HECHO (pero no se guardan)</li>
+                    <li>Poner de título centrando los créditos para TMDB/importante para poder usarlo correctamente---HECHO!!</li>
+        </ul>
+    </div>
+</div>
+
+                
+
+               
 
                 <div className="movies-titles">
                     <h1 className="title">JSON MOVIES</h1>
+                    <button className='button' onClick={()=> addRandomMovie()}>Añadir peliculas</button>
+
                     <h1 className="title">API MOVIES</h1>
-                    <button onClick={()=> addRandomMovie()}>Añadir peliculas</button>
                 </div>
 
 
