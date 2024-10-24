@@ -63,8 +63,8 @@ const MovieInfo = () => {
                 
             </div>
             <div>
-            <div class="card">
-            <div class="textos">
+            <div className="card"> 
+            <div className="textos">
                 <div className='imagenYtitulo'>
                                  <h2 className='titulo'>MOVIE-API</h2>
                                  <img src={img} width="100" height="100" />
@@ -75,6 +75,8 @@ const MovieInfo = () => {
                     <li>Luego una sub cardview o algo a la derecha mostrando películas de TMDB mediante un JSON.----HECHO</li>
                     <li>Añadir un apartado para añadir o eliminar películas del JSON---HECHO (pero no se guardan)</li>
                     <li>Poner de título centrando los créditos para TMDB/importante para poder usarlo correctamente---HECHO!!</li>
+                    <li>Al darle click a una pelicula que te diriga a una nuva vista donde aparezcan las siguientes caracteristicas de esa pelicula:</li>
+                    <li>Mostrar: Portada, titulo, descripcion, edad requerida, genero y puntuación global mediante estrellas</li>
         </ul>
     </div>
 </div>

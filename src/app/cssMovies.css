@@ -15,6 +15,7 @@
     font-size: 15px;
     cursor: pointer;
     text-align: center;
+    margin-top: 10px;
     text-decoration: none;
     outline: none;
     color: #fff;
@@ -43,9 +44,9 @@
 
 .local-movies, .movie-grid {
     flex: 2;
-    margin: 50px; 
+    margin: 1px; 
     display: flex; 
-    flex-wrap: wrap; 
+    flex-wrap:wrap; 
     gap: 15px;
 }
 
@@ -54,6 +55,7 @@
     border-radius: 20px;
     padding: 25px;
     border: #333;
+    box-shadow: #333;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     
     
@@ -76,7 +78,10 @@
     box-shadow: #ffffff;
 
 
+
 }
+
+
 .imagenYtitulo {
     display: flex; /* Usar flexbox para alinear la imagen y el título */
     align-items: center; /* Centrar verticalmente */
