@@ -37,6 +37,19 @@ body {
 }
 
 /* Estilo para la tarjeta de libros */
+.btn_delete{
+    background-color: red;
+    height: 44px;
+    width: 44px;
+    margin: 10px;
+    box-shadow: #e0c28a;
+}
+
+.btn_edit{
+    background-color: greenyellow;
+    height: 44px;
+    width: 44px;
+}
 
 
 .targeta-libro > div { /* Estilo para cada tarjeta */
@@ -60,7 +73,6 @@ li{
 /* Estilo para la imagen del libro */
 .targeta-libro img {
     width: 170px;
-    border-radius: 20px;
     height: 240px; /* Ancho fijo para la imagen */
     border-radius: 5px; /* Bordes redondeados para la imagen */
     margin-left: 210px; /* Espacio a la derecha de la imagen */

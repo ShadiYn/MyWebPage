@@ -1,7 +1,7 @@
 // src/components/Bookjournal.js
 import { useState, useEffect } from 'react';
 import {  useNavigate } from 'react-router-dom';
-import { getBooks } from '../services/BookItem'; // Asegúrate de que la ruta sea correcta
+import { deleteBook, getBooks } from '../services/BookItem'; // Asegúrate de que la ruta sea correcta
 import '../app/cssBookJournal.css';
 
 
@@ -21,6 +21,10 @@ const Bookjournal = () => {
         fetchBooks();
     }, []);
 
+    const handleDelete = async (id)=>{
+        await deleteBook((prevBook) => prevBook.filter(books=>books.id !== id))
+
+    };
 
     const handleClick = ()=>{
         navigate('/');
@@ -37,17 +41,19 @@ const Bookjournal = () => {
 
             <div className='lista-Libros'>
                 <div className='targeta-libro'>
-                
+                        
                     {
                         books.map((book) => (
                             <div className='texto' key={book.id}> 
                             <ul className='lista_texto'>
+                            <button className='btn_delete' onClick={handleDelete(book.id)}>X</button> 
+                            <button className='btn_edit'>editar</button>
                             <li>Title: {book.title}</li>
                                 <li>Author: {book.author}</li>
                                 <li>Pages: {book.pages}</li>
                                 <li>Rating: {book.rating}</li>
                             </ul>
-                            <img src={book.imageUrl} alt={book.title} />
+                            <img className='img_books' src={book.imageUrl} alt={book.title} />
                             </div>
                         ))
                     }
