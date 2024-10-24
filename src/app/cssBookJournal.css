@@ -1,0 +1,70 @@
+body {
+    background-color: #f8f5e1; /* Un tono más suave de antiquewhite */
+    font-family: 'Arial', sans-serif; /* Fuente más moderna */
+    margin: 0;
+    padding: 20px; /* Agregado para un poco de espacio alrededor */
+}
+
+.titulo{
+    margin-top: 25px;
+}
+
+/* Estilo del botón de inicio */
+.btn_home {
+    display: inline-block;
+    padding: 15px 30px; /* Aumentado el padding para un botón más grande */
+    font-size: 16px; /* Tamaño de fuente más grande */
+    cursor: pointer;
+    text-align: center;
+    margin-top: 10px;
+    outline: none;
+    color: #ffffff; /* Cambiado a blanco para mejor contraste */
+    background-color: #e0c28a;
+    border: none;
+    border-radius: 25px; /* Esquinas más redondeadas */
+    box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2); /* Sombra más sutil */
+    transition: background-color 0.3s, transform 0.3s; /* Transiciones suaves */
+}
+
+.btn_home:hover {
+    background-color: #b8870c; /* Color más oscuro para hover */
+}
+
+.btn_home:active {
+    background-color: #e0c28a; /* Color original al presionar */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Sombra más pronunciada al presionar */
+    transform: translateY(4px); /* Efecto de desplazamiento hacia abajo */
+}
+
+/* Estilo para la tarjeta de libros */
+
+
+.targeta-libro > div { /* Estilo para cada tarjeta */
+    display: flex; /* Usar flexbox para alinear imagen y texto */
+    background-color: #ffffff; /* Fondo blanco para las tarjetas */
+    border-radius: 10px; /* Bordes redondeados */
+    width: 550px;
+    height: 250px;
+    padding-top: 10px;
+    margin-top: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Sombra sutil */
+    transition: transform 0.3s; /* Transición para el efecto de hover */
+}
+
+li{
+    list-style-type: none;
+    margin: 5px;
+}
+
+
+/* Estilo para la imagen del libro */
+.targeta-libro img {
+    width: 170px;
+    border-radius: 20px;
+    height: 240px; /* Ancho fijo para la imagen */
+    border-radius: 5px; /* Bordes redondeados para la imagen */
+    margin-left: 210px; /* Espacio a la derecha de la imagen */
+}
+
+
+
