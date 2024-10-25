@@ -80,3 +80,13 @@ li{
 
 
 
+.calendar-container {
+    width: 25%; /* Ajusta el ancho según sea necesario */
+    padding-left: 20px; /* Espacio entre la lista de libros y el calendario */
+}
+
+
+
+
+
+

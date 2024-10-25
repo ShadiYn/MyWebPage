@@ -3,13 +3,15 @@ import { useState, useEffect } from 'react';
 import {  useNavigate } from 'react-router-dom';
 import { deleteBook, getBooks } from '../services/BookItem'; // Asegúrate de que la ruta sea correcta
 import '../app/cssBookJournal.css';
-
+import Calendar from 'react-calendar';
 
 
 
 const Bookjournal = () => {
     const [books, setBooks] = useState([]);
     const navigate = useNavigate();
+    const [date, setDate] = useState(new Date());
+
 
     useEffect(() => {
         const fetchBooks = async () => {
@@ -41,8 +43,10 @@ const Bookjournal = () => {
     return (
         <div>
             <button className='btn_home' onClick={handleClick}>Home</button>
+            <br></br>
+            <br></br>
+            <br></br>
             <div>
-            <h1>Bienvenido a tu diario de libros</h1>
             <button className="btn btn-outline-success" onClick={gotCreate}>Crear Libro</button>
             {/* Otros enlaces o contenido */}
         </div>
@@ -58,22 +62,18 @@ const Bookjournal = () => {
                         books.map((book) => (
                             <div className='texto' key={book.id}> 
                             <ul className='lista_texto'>
-                            <button type="button" 
-                                onClick={() => handleDelete(book.id)}  // Pasa el ID aquí
-                                className="btn btn-outline-danger">
-                            delete
-                        </button>
-                        
+    <button type="button" 
+        onClick={() => handleDelete(book.id)}  // Pasa el ID aquí
+        className="btn btn-outline-danger">
+        delete
+    </button>
+    <button className='btn btn-outline-warning'>editar</button>
+    <li>Titulo: {book.title}</li>
+    <li>Autor: {book.author}</li>
+    <li>Paginas: {book.pages}</li>
+    <li>Puntuación: {book.rating} <i className="fa fa-star" ></i></li>
+</ul>
 
-
-
-
-                            <button className='btn btn-outline-warning'>editar</button>
-                            <li>Title: {book.title}</li>
-                                <li>Author: {book.author}</li>
-                                <li>Pages: {book.pages}</li>
-                                <li>Rating: {book.rating}</li>
-                            </ul>
                             <img className='img' src={book.imageUrl} alt={book.title} style={{ width: '220px', height: '238px' }} />
 
                             </div>
@@ -82,7 +82,9 @@ const Bookjournal = () => {
                 </div>
             </div>
             
-            <div className='calendario'></div>
+            <div className='calendar-container'>
+                <Calendar onChange={setDate} value={date}></Calendar>
+            </div>
 
 
 
