@@ -2,6 +2,7 @@ import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import Home from '../pages/Home';
 import Page1 from '../pages/movieInfo';
 import BookJournal from '../pages/Bookjournal'
+import Create from '../pages/bookCreate'
 const Router = () => {
     return (
         <BrowserRouter>
@@ -10,6 +11,7 @@ const Router = () => {
                 <Route path='/movieInfo' element={<Page1 />} />
                 <Route path="*" element={<div>404 - Not Found</div>} />
                 <Route path="/book-journal" element={<BookJournal />}></Route>
+                <Route path='create' element={<Create></Create>}></Route>
             </Routes>
         </BrowserRouter>
     );
