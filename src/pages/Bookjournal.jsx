@@ -74,7 +74,7 @@ const Bookjournal = () => {
                                 <li>Pages: {book.pages}</li>
                                 <li>Rating: {book.rating}</li>
                             </ul>
-                            <img src={book.imageUrl} alt={book.title} style={{ width: '100px', height: 'auto' }} />
+                            <img className='img' src={book.imageUrl} alt={book.title} style={{ width: '220px', height: '238px' }} />
 
                             </div>
                         ))
