@@ -1,96 +1,96 @@
-// src/components/Bookjournal.js
 import { useState, useEffect } from 'react';
-import {  useNavigate } from 'react-router-dom';
-import { deleteBook, getBooks } from '../services/BookItem'; // Asegúrate de que la ruta sea correcta
-import '../app/cssBookJournal.css';
+import { useNavigate } from 'react-router-dom';
 import Calendar from 'react-calendar';
-
-
+import '../app/cssBookJournal.css';
+import 'react-calendar/dist/Calendar.css';
 
 const Bookjournal = () => {
     const [books, setBooks] = useState([]);
-    const navigate = useNavigate();
     const [date, setDate] = useState(new Date());
-
+    const navigate = useNavigate();
 
     useEffect(() => {
-        const fetchBooks = async () => {
-            
-                const response = await getBooks();
-                setBooks(response.data);
-                console.log(response.data);
-            
-        };
-        fetchBooks();
+        const savedBooks = JSON.parse(localStorage.getItem('books')) || [];
+        console.log("Books loaded from localStorage:", savedBooks); // Verificar libros cargados
+        setBooks(savedBooks);
     }, []);
 
-    const handleDelete = async (id) => {
-        // Primero realiza la solicitud para eliminar el libro en el backend
-        await deleteBook(id);
-    
-        // Luego, actualiza el estado para eliminar el libro del frontend
-        setBooks((prevBooks) => prevBooks.filter(book => book.id !== id));
+    const handleDelete = (id) => {
+        const updatedBooks = books.filter((book) => book.title !== id); // Filtrar por título o id único
+        setBooks(updatedBooks);
+        localStorage.setItem('books', JSON.stringify(updatedBooks));
     };
-    
 
-    const handleClick = ()=>{
+    const handleClick = () => {
         navigate('/');
-    }
-    const gotCreate = ()=>{
-        navigate('/create')
-    }
+    };
+
+    const gotCreate = () => {
+        navigate('/create');
+    };
 
     return (
         <div>
-            <button className='btn_home' onClick={handleClick}>Home</button>
-            <br></br>
-            <br></br>
-            <br></br>
-            <div>
-            <button className="btn btn-outline-success" onClick={gotCreate}>Crear Libro</button>
-            {/* Otros enlaces o contenido */}
-        </div>
+            <button className="btn_home" onClick={handleClick}>🏠 Home</button>
+            <button className="btn btn-create" onClick={gotCreate}>📚 Crear Libro</button>
 
-            <div className='titulo'>
-            <h1>Book List</h1>
-            </div>
+            <h1 className="titulo">Book List</h1>
 
-            <div className='lista-Libros'>
-                <div className='targeta-libro'>
-                        
-                    {
-                        books.map((book) => (
-                            <div className='texto' key={book.id}> 
-                            <ul className='lista_texto'>
-    <button type="button" 
-        onClick={() => handleDelete(book.id)}  // Pasa el ID aquí
-        className="btn btn-outline-danger">
-        delete
-    </button>
-    <button className='btn btn-outline-warning'>editar</button>
-    <li>Titulo: {book.title}</li>
-    <li>Autor: {book.author}</li>
-    <li>Paginas: {book.pages}</li>
-    <li>Puntuación: {book.rating} <i className="fa fa-star" ></i></li>
-</ul>
-
-                            <img className='img' src={book.imageUrl} alt={book.title} style={{ width: '220px', height: '238px' }} />
-
+            <div className="content-container">
+                <div className='lista-Libros'>
+                    {books.length === 0 ? (
+                        <p>No hay libros disponibles. Crea uno nuevo.</p>
+                    ) : (
+                        books.map((book, index) => (
+                            <div className='targeta-libro' key={index}>
+                                <img className='img' src={book.imageUrl} alt={book.title} />
+                                <div className='texto'>
+                                    <h3>{book.title}</h3>
+                                    <ul className='lista_texto'>
+                                        <li>Autor: {book.author}</li>
+                                        <li>Páginas: {book.pages}</li>
+                                        <li>Calificación: {book.rating} <i className="fa fa-star"></i></li>
+                                    </ul>
+                                    <button type="button" onClick={() => handleDelete(book.title)} className="btn btn-delete">Delete</button>
+                                </div>
                             </div>
                         ))
-                    }
+                    )}
+                </div>
+
+                <div className='calendar-container'>
+                    <Calendar
+                        onChange={setDate}
+                        value={date}
+                        tileContent={({ date }) => {
+                            const matchingBooks = books.filter(
+                                (book) =>
+                                    (book.start_Date && new Date(book.start_Date).toDateString() === date.toDateString()) ||
+                                    (book.finish_Date && new Date(book.finish_Date).toDateString() === date.toDateString())
+                            );
+
+                            return (
+                                <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', gap: '2px' }}>
+                                    {matchingBooks.map((book, index) => (
+                                        <div
+                                            key={index}
+                                            style={{
+                                                backgroundColor: book.highlightColor,
+                                                borderRadius: '50%',
+                                                width: '8px',
+                                                height: '8px',
+                                            }}
+                                        ></div>
+                                    ))}
+                                </div>
+                            );
+                        }}
+                        className="custom-calendar"
+                    />
                 </div>
             </div>
-            
-            <div className='calendar-container'>
-                <Calendar onChange={setDate} value={date}></Calendar>
-            </div>
-
-
-
-
         </div>
     );
-}
+};
 
 export default Bookjournal;
