@@ -1,10 +1,9 @@
 .container {
-    max-width: 900px;
+    max-width: 800px;
     margin: 0 auto;
     padding: 2rem;
     color: #333;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    color: #333;
 }
 
 h2 {
@@ -18,7 +17,7 @@ h2 {
 .form-grid {
     display: grid;
     grid-template-columns: repeat(2, 1fr); /* Dos columnas */
-    gap: 1rem; /* Espacio entre los campos */
+    gap: 1rem; /* Espacio entre columnas */
 }
 
 .form-group {
@@ -30,7 +29,7 @@ h2 {
     font-size: 1rem;
     font-weight: 500;
     color: #495057;
-    margin-bottom: 0.2rem; /* Margen reducido */
+    margin-bottom: 0.2rem;
 }
 
 .form-control {
@@ -64,7 +63,7 @@ h2 {
 
 .btn-success {
     display: inline-block;
-    padding: 15px 30px; /* Botón más grande */
+    padding: 15px 30px;
     font-size: 16px;
     cursor: pointer;
     text-align: center;
@@ -82,15 +81,6 @@ h2 {
 
 .btn-success:hover {
     background-color: #b8870c;
-    color: #000000;
-}
-
-.btn-success:active{
-    .btn-back:active{
-        background-color: #e0c28a;
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
-        transform: translateY(4px);
-    }
 }
 
 .color-picker {
@@ -106,9 +96,10 @@ input[type="color"] {
     cursor: pointer;
     transition: background-color 0.3s;
 }
-.btn-back{
+
+.btn-back {
     display: inline-block;
-    padding: 15px 30px; /* Botón más grande */
+    padding: 15px 30px;
     font-size: 16px;
     cursor: pointer;
     text-align: center;
@@ -122,13 +113,8 @@ input[type="color"] {
     box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2);
     transition: background-color 0.3s, transform 0.3s;
 }
-.btn-back:active{
-    background-color: #e0c28a;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
-    transform: translateY(4px);
-}
 
-.btn-back:hover{
+.btn-back:hover {
     background-color: #b8870c;
 }
 
@@ -139,4 +125,21 @@ input[type="color"]:focus {
 input[type="date"]::-webkit-calendar-picker-indicator {
     filter: invert(60%);
     cursor: pointer;
+}
+
+/* Estilo para la vista previa de la imagen */
+.image-preview {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px dashed #ccc;
+    border-radius: 8px;
+    height: 200px;
+    margin-top: 1rem;
+    overflow: hidden;
+}
+
+.image-preview img {
+    max-width: 100%;
+    max-height: 100%;
 }
