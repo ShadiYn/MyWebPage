@@ -1,13 +1,24 @@
-import {Link} from 'react-router-dom';
+import {  useNavigate } from 'react-router-dom';
 
 const Home = ()=>{
+    const navigate = useNavigate();
+
+
+    const handleBook = ()=>{
+        navigate('/book-journal');
+
+    }
+
+    const handleMovies = ()=>{
+        navigate('/movieInfo');
+    }
+
+
     return(
         <div>
-            <ul>
-                <li><Link to="/movieInfo">Movies Info</Link></li>
-                <li><Link to="/book-journal">Book Journal</Link></li>
-            </ul>
-            <p>Pgina home</p>
+            <button onClick={handleMovies}>Movies Info</button>
+            <button  onClick={handleBook}>Book Journal</button>
+            <p></p>
 
         </div>
     )

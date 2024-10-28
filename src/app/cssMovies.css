@@ -9,6 +9,29 @@
     border-radius: 10px; /* Bordes redondeados */
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Sombra suave */
 }
+.button-home{
+    display: inline-block;
+    padding: 15px 30px;
+    font-size: 16px;
+    cursor: pointer;
+    text-align: center;
+    margin-top: 10px;
+    margin-bottom: 15px;
+    outline: none;
+    color: #ffffff;
+    background-color: #e0c28a;
+    border: none;
+    border-radius: 25px;
+    box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2);
+    transition: background-color 0.3s, transform 0.3s;
+}
+.button-home:hover{
+        background-color: #b8870c;
+        color: white;
+    
+}
+
+
 .button {
     display: inline-block;
     padding: 15px 25px;

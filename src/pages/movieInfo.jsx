@@ -1,4 +1,4 @@
-import { Link } from 'react-router-dom';
+import {useNavigate} from 'react-router-dom';
 import { getPopularMovies } from '../services/api';
 import { useEffect, useState } from 'react';
 import '../app/cssMovies.css';
@@ -8,6 +8,9 @@ const apiKey = 'd801d7cff4e032fae504d22d2d7dcf45';
 const urlBase = 'https://api.themoviedb.org/3/';
 const MovieInfo = () => {
     const [movie, setMovie] = useState([]);
+
+    const navigate = useNavigate();
+
     const [localmovie, setLocalMovies] = useState([]);
 
     
@@ -50,15 +53,15 @@ const MovieInfo = () => {
         loadLocalMovies();
     }, []);
     
-    
+    const handleHome = ()=>{
+        navigate('/');
+    }
 
     return (
 
         
         <div className="">
-            <ul>
-                <li><Link to="/">Home page</Link></li>
-            </ul>
+           <button className='button-home' onClick={handleHome}>Home</button>
             <div>
                 
             </div>
