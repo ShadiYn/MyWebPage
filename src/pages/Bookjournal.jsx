@@ -59,7 +59,7 @@ const Bookjournal = () => {
                     ) : (
                         books.map((book, index) => (
                             <div className='targeta-libro' key={index} 
-                            style={{ backgroundColor: book.highlightColor || '#fff' }} // Aplicar color personalizado o blanco por defecto
+                         // Aplicar color personalizado o blanco por defecto
                             >
                                 <img className='img' src={book.imageUrl} alt={book.title} />
                                 <div className='texto'>

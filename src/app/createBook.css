@@ -1,7 +1,8 @@
 .container {
-    max-width: 700px;
+    max-width: 900px;
     margin: 0 auto;
     padding: 2rem;
+    color: #333;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     color: #333;
 }
@@ -43,13 +44,13 @@ h2 {
 }
 
 .form-control:focus {
-    border-color: #00b894;
-    box-shadow: 0px 0px 8px rgba(0, 184, 148, 0.2);
+    border-color: #716f07;
+    box-shadow: 0px 0px 8px rgba(104, 96, 9, 0.2);
 }
 
 .btn-outline-secondary {
     font-size: 0.9rem;
-    color: #6c757d;
+    color: #5c6416;
     border: 1px solid #ced4da;
     border-radius: 8px;
     padding: 0.5rem 1rem;
@@ -62,21 +63,34 @@ h2 {
 }
 
 .btn-success {
-    background-color: #00b894;
-    color: #fff;
-    border: none;
-    padding: 0.75rem;
-    border-radius: 8px;
-    font-size: 1rem;
-    font-weight: 600;
+    display: inline-block;
+    padding: 15px 30px; /* Botón más grande */
+    font-size: 16px;
     cursor: pointer;
-    transition: background-color 0.3s, box-shadow 0.3s;
+    text-align: center;
+    margin-top: 10px;
+    margin-bottom: 15px;
+    outline: none;
+    color: #000000;
+    background-color: #e0c28a;
+    border: none;
+    border-radius: 25px;
+    box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2);
+    transition: background-color 0.3s, transform 0.3s;
     grid-column: span 2; /* Este botón ocupa ambas columnas */
 }
 
 .btn-success:hover {
-    background-color: #009874;
-    box-shadow: 0px 4px 12px rgba(0, 152, 116, 0.3);
+    background-color: #b8870c;
+    color: #000000;
+}
+
+.btn-success:active{
+    .btn-back:active{
+        background-color: #e0c28a;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+        transform: translateY(4px);
+    }
 }
 
 .color-picker {
@@ -91,6 +105,31 @@ input[type="color"] {
     border-radius: 8px;
     cursor: pointer;
     transition: background-color 0.3s;
+}
+.btn-back{
+    display: inline-block;
+    padding: 15px 30px; /* Botón más grande */
+    font-size: 16px;
+    cursor: pointer;
+    text-align: center;
+    margin-top: 10px;
+    margin-bottom: 15px;
+    outline: none;
+    color: #ffffff;
+    background-color: #e0c28a;
+    border: none;
+    border-radius: 25px;
+    box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2);
+    transition: background-color 0.3s, transform 0.3s;
+}
+.btn-back:active{
+    background-color: #e0c28a;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    transform: translateY(4px);
+}
+
+.btn-back:hover{
+    background-color: #b8870c;
 }
 
 input[type="color"]:focus {

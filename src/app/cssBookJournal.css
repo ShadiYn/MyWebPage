@@ -1,5 +1,5 @@
 body {
-    background-color: #f8f5e1; /* Un tono más suave de antiquewhite */
+    background-image: url(../app/pretty_bg.jfif);
     margin: 0;
     font-family: 'Verdana', 'Geneva', 'Tahoma', sans-serif;
     padding: 20px; /* Espacio alrededor */
@@ -67,7 +67,7 @@ body {
 /* Estilo para la tarjeta de libros */
 .targeta-libro {
     display: flex;
-    background-color: #ffffff;
+    background-color: #ffffffbe;
     border-radius: 10px;
     width: 550px;
     height: 250px;
@@ -141,8 +141,8 @@ li {
 
 /* Contenedor del calendario */
 .calendar-container {
-    width: 25%;
-    padding-left: 10px;
+    width: 50%;
+    padding-left: 250px;
 }
 
 /* Contenedor principal para alinear lista de libros y calendario */
@@ -157,9 +157,10 @@ li {
 /* Estilos personalizados para el calendario *//* Estilos personalizados para el calendario */
 .custom-calendar {
     width: 100%;
-    max-width: 320px; /* Ancho del calendario */
-    background-color: #ffffff; /* Fondo blanco */
-    border-radius: 8px; /* Bordes suaves */
+    max-width: 430px; /* Ancho del calendario */
+    background-color: #ffffffb2;
+     /* Fondo blanco */
+    border-radius: 15px; /* Bordes suaves */
     padding: 15px; /* Espacio interior */
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1); /* Sombra sutil */
     text-align: center; /* Centrar contenido */

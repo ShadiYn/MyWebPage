@@ -45,10 +45,10 @@ const BookCreate = () => {
     };
 
     return (
-        <div className="container mt-5">
-            <div className="card p-4 shadow-sm">
+        <div className="container">
+            <div>
                 <h2 className="text-center mb-4">Crear Nuevo Libro</h2>
-                <button onClick={handleReadClick} className='btn btn-outline-secondary mb-3'>Volver</button>
+                <button onClick={handleReadClick} className='btn-back'>Volver</button>
                 <form onSubmit={handleSubmit}>
                     <div className="mb-3">
                         <label className="form-label">Título:</label>
