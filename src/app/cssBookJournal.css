@@ -1,12 +1,14 @@
 body {
     background-color: #f8f5e1; /* Un tono más suave de antiquewhite */
-    font-family: 'Arial', sans-serif; /* Fuente más moderna */
     margin: 0;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
     padding: 20px; /* Agregado para un poco de espacio alrededor */
 }
 
-.titulo{
+.titulo {
     margin-top: 25px;
+    font-size: 50px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 
 /* Estilo del botón de inicio */
@@ -37,56 +39,80 @@ body {
 }
 
 /* Estilo para la tarjeta de libros */
-.btn_delete{
-    background-color: red;
-    height: 44px;
-    width: 44px;
-    margin: 10px;
-    box-shadow: #e0c28a;
-}
-
-.btn_edit{
-    background-color: greenyellow;
-    height: 44px;
-    width: 44px;
-}
-
-
-.targeta-libro > div { /* Estilo para cada tarjeta */
+.targeta-libro {
     display: flex; /* Usar flexbox para alinear imagen y texto */
     background-color: #ffffff; /* Fondo blanco para las tarjetas */
     border-radius: 10px; /* Bordes redondeados */
     width: 550px;
     height: 250px;
-    padding-top: 10px;
     margin-top: 10px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Sombra sutil */
     transition: transform 0.3s; /* Transición para el efecto de hover */
+    overflow: hidden; /* Ocultar desbordamiento */
 }
 
-li{
+.texto {
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between; /* Espacio entre los elementos */
+}
+
+.texto h3 {
+    margin: 0; /* Eliminar márgenes del título */
+}
+
+li {
     list-style-type: none;
-    margin: 5px;
+    margin: 5px 0; /* Espaciado vertical para elementos de la lista */
 }
-
 
 /* Estilo para la imagen del libro */
 .targeta-libro img {
-    width: 170px;
-    height: 240px; /* Ancho fijo para la imagen */
+    width: 170px; /* Ancho fijo para la imagen */
+    height: 100%; /* Ocupa todo el alto de la tarjeta */
+    object-fit: cover; /* Recorta la imagen para que mantenga la relación de aspecto */
     border-radius: 5px; /* Bordes redondeados para la imagen */
-    margin-left: 210px; /* Espacio a la derecha de la imagen */
 }
 
+.btn-delete {
+    background-color: #e74c3c; /* Color de fondo del botón */
+    color: white; /* Color del texto */
+    border: none; /* Sin borde */
+    border-radius: 5px; /* Bordes redondeados */
+    cursor: pointer; /* Cambiar cursor */
+    margin-top: 10px; /* Espaciado superior */
+    padding: 8px; /* Padding interno */
+    transition: background-color 0.3s; /* Transición de color de fondo */
+}
 
+.btn-delete:hover {
+    background-color: #612820; /* Color más oscuro para hover */
+    color: #ffffff;
+}
 
 .calendar-container {
     width: 25%; /* Ajusta el ancho según sea necesario */
-    padding-left: 20px; /* Espacio entre la lista de libros y el calendario */
+    padding-left: 10px; /* Reduce el espacio entre la lista de libros y el calendario */
 }
 
+/* Contenedor principal para alinear lista de libros y calendario */
+.content-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 10px; /* Reduce el espacio entre la lista de libros y el calendario */
+}
 
+/* Estilos personalizados para el calendario */
+.custom-calendar {
+    width: 100%;
+    max-width: 300px;
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 10px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+}
 
-
-
-
+/* Resto de estilos para el calendario ... */
