@@ -1,8 +1,6 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { createBook } from '../services/BookItem';
-
-import '../app/createBook.css'
+import '../app/createBook.css';
 
 const BookCreate = () => {
     const [title, setTitle] = useState('');
@@ -11,33 +9,47 @@ const BookCreate = () => {
     const [finishDate, setFinishDate] = useState('');
     const [pages, setPages] = useState('');
     const [rating, setRating] = useState('');
-    const [imageUrl, setImageUrl] = useState('');
-    const [highlightColor, setHighlightColor] = useState('#ee998a'); // Color por defecto
+    const [imageFile, setImageFile] = useState(null);
+    const [highlightColor, setHighlightColor] = useState('#ee998a');
     const navigate = useNavigate();
+
+    const handleFileChange = (e) => {
+        setImageFile(e.target.files[0]);
+    };
 
     const handleSubmit = async (e) => {
         e.preventDefault();
 
-        const newBook = {
+        const formData = new FormData();
+        const bookData = {
             title,
             author,
             start_Date: startDate,
             finish_Date: finishDate,
             pages: parseInt(pages),
             rating: parseFloat(rating),
-            imageUrl,
-            highlightColor,
-            user: { id: 1 }
+            user: { id: 1 } // Asegúrate de que el usuario con ID 1 existe en la base de datos
         };
 
-        await createBook(newBook); // Guardar en el backend si tienes configurado un servicio
-        saveToLocalStorage(newBook); // Guardar también en localStorage
-        navigate('/book-journal');
-    };
+        formData.append("file", imageFile);
+        formData.append("bookData", JSON.stringify(bookData));
 
-    const saveToLocalStorage = (book) => {
-        const savedBooks = JSON.parse(localStorage.getItem('books')) || [];
-        localStorage.setItem('books', JSON.stringify([...savedBooks, book]));
+        console.log("Book data JSON:", JSON.stringify(bookData)); // Log para verificar los datos
+
+        try {
+            const response = await fetch('http://localhost:8080/books/create', {
+                method: 'POST',
+                body: formData
+            });
+
+            if (response.ok) {
+                navigate('/book-journal');
+            } else {
+                console.error("Error al crear el libro");
+            }
+        } catch (error) {
+            console.error("Error al enviar los datos:", error);
+        }
     };
 
     const handleReadClick = () => {
@@ -48,7 +60,7 @@ const BookCreate = () => {
         <div className="container">
             <div>
                 <h2 className="text-center mb-4">Crear Nuevo Libro</h2>
-                <button onClick={handleReadClick} className='btn-back'>Volver</button>
+                <button onClick={handleReadClick} className="btn-back">Volver</button>
                 <form onSubmit={handleSubmit}>
                     <div className="mb-3">
                         <label className="form-label">Título:</label>
@@ -75,14 +87,14 @@ const BookCreate = () => {
                         <input type="number" className="form-control" step="0.1" value={rating} onChange={(e) => setRating(e.target.value)} required />
                     </div>
                     <div className="mb-3">
-                        <label className="form-label">URL de la imagen:</label>
-                        <input type="text" className="form-control" value={imageUrl} onChange={(e) => setImageUrl(e.target.value)} />
+                        <label className="form-label">Imagen del libro:</label>
+                        <input type="file" className="form-control" onChange={handleFileChange} />
                     </div>
                     <div className="mb-3">
                         <label className="form-label">Color de resaltado:</label>
                         <input type="color" className="form-control" value={highlightColor} onChange={(e) => setHighlightColor(e.target.value)} />
                     </div>
-                    <button type='submit' className="btn btn-success w-100">Crear</button>
+                    <button type="submit" className="btn btn-success w-100">Crear</button>
                 </form>
             </div>
         </div>

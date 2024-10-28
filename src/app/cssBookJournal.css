@@ -168,6 +168,8 @@ li {
 
 /* Estilo para los días de la semana */
 .react-calendar__month-view__days__day {
+    background-color: #33333300;
+    border: #33333300;
     border-radius: 4px; /* Bordes redondeados */
     transition: background-color 0.2s;
     padding: 10px; /* Espacio interno */
@@ -176,20 +178,20 @@ li {
 
 /* Estilo para los días seleccionados */
 .react-calendar__tile--active {
-    background-color: #4caf50; /* Verde para días seleccionados */
+    background-color: #b77b4dac; /* Verde para días seleccionados */
     color: white; /* Texto blanco */
 }
 
 /* Estilo para los días en hover */
 .react-calendar__tile:hover {
-    background-color: #e8f5e9; /* Verde claro al pasar el mouse */
+    background-color: #dad0ae; /* Verde claro al pasar el mouse */
     color: #333; /* Color oscuro */
 }
 
 /* Estilo para los botones del calendario */
 .react-calendar__navigation button {
     background-color: transparent; /* Fondo transparente */
-    color: #007bff; /* Color azul */
+    color: #dd79d1; /* Color azul */
     border: none; /* Sin borde */
     border-radius: 4px; /* Bordes redondeados */
     padding: 10px; /* Espaciado interno */

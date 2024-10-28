@@ -1,7 +1,7 @@
 // src/components/Bookjournal.js
 import { useState, useEffect } from 'react';
 import {  useNavigate } from 'react-router-dom';
-import { deleteBook, getBooks } from '../services/BookItem'; // Asegúrate de que la ruta sea correcta
+import { deleteBook, getBooks } from '../services/BookItem'; 
 import '../app/cssBookJournal.css';
 import Calendar from 'react-calendar';
 
@@ -48,7 +48,7 @@ const Bookjournal = () => {
             <button className="btn_home" onClick={handleClick}>🏠 Home</button>
             <button className="btn-create" onClick={gotCreate}>📚 Crear Libro</button>
             </div>
-           
+        
 
             <h1 className="titulo">Book List</h1>
 
@@ -59,9 +59,8 @@ const Bookjournal = () => {
                     ) : (
                         books.map((book, index) => (
                             <div className='targeta-libro' key={index} 
-                         // Aplicar color personalizado o blanco por defecto
                             >
-                                <img className='img' src={book.imageUrl} alt={book.title} />
+                                <img className='img' src={'http://localhost:8080/'+book.imageUrl} alt={book.imageUrl} />
                                 <div className='texto'>
                                     <h3>{book.title}</h3>
                                     <ul className='lista_texto'>

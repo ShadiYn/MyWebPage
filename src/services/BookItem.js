@@ -7,7 +7,7 @@ export const getBooks = async ()=> await instance.get('/')
 //CREATE
 export const createBook = async (book) => {
     const response = await axios.post('http://localhost:8080/books/create', book);
-    return response.data; // Devuelve la respuesta si es necesario
+    return response.data; 
 };
 //DELETE
 export const deleteBook = async (id) => {
