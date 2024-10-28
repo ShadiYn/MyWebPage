@@ -14,6 +14,6 @@ export const deleteBook = async (id) => {
     try {
         return await instance.delete('/' + id);
     } catch (error) {
-        console.error('Error eliminando el libro:', error.response?.data || error.message);
+        console.error('Error eliminando el libro:', error.response ? error.response.data : error.message);
     }
 };

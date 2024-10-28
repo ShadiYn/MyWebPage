@@ -23,14 +23,15 @@ const Bookjournal = () => {
         };
         fetchBooks();
     }, []);
-
     const handleDelete = async (id) => {
-        // Primero realiza la solicitud para eliminar el libro en el backend
-        await deleteBook(id);
-    
-        // Luego, actualiza el estado para eliminar el libro del frontend
-        setBooks((prevBooks) => prevBooks.filter(book => book.id !== id));
+        try {
+            await deleteBook(id);
+            setBooks((prevBooks) => prevBooks.filter(book => book.id !== id));
+        } catch (error) {
+            console.error('Error eliminando el libro:', error);
+        }
     };
+    
     
 
     const handleClick = ()=>{
@@ -42,8 +43,12 @@ const Bookjournal = () => {
 
     return (
         <div>
+
+            <div className='btn_containers'>
             <button className="btn_home" onClick={handleClick}>🏠 Home</button>
-            <button className="btn btn-create" onClick={gotCreate}>📚 Crear Libro</button>
+            <button className="btn-create" onClick={gotCreate}>📚 Crear Libro</button>
+            </div>
+           
 
             <h1 className="titulo">Book List</h1>
 
@@ -53,7 +58,9 @@ const Bookjournal = () => {
                         <p>No hay libros disponibles. Crea uno nuevo.</p>
                     ) : (
                         books.map((book, index) => (
-                            <div className='targeta-libro' key={index}>
+                            <div className='targeta-libro' key={index} 
+                            style={{ backgroundColor: book.highlightColor || '#fff' }} // Aplicar color personalizado o blanco por defecto
+                            >
                                 <img className='img' src={book.imageUrl} alt={book.title} />
                                 <div className='texto'>
                                     <h3>{book.title}</h3>
@@ -62,7 +69,12 @@ const Bookjournal = () => {
                                         <li>Páginas: {book.pages}</li>
                                         <li>Calificación: {book.rating} <i className="fa fa-star"></i></li>
                                     </ul>
-                                    <button type="button" onClick={() => handleDelete(book.title)} className="btn btn-delete">Delete</button>
+                                    <div className="button-container">
+                                        <button type="button" onClick={() => handleDelete(book.id)} className="btn btn-delete">Delete</button>
+                                        <button type="button" className="btn btn-edit">Edit</button>
+                                    </div>
+
+                                    
                                 </div>
                             </div>
                         ))

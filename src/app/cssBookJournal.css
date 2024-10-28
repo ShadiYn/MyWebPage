@@ -1,99 +1,148 @@
 body {
     background-color: #f8f5e1; /* Un tono más suave de antiquewhite */
     margin: 0;
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
-    padding: 20px; /* Agregado para un poco de espacio alrededor */
+    font-family: 'Verdana', 'Geneva', 'Tahoma', sans-serif;
+    padding: 20px; /* Espacio alrededor */
 }
 
 .titulo {
     margin-top: 25px;
     font-size: 50px;
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    color: #4b3c2a; /* Color más oscuro para el título */
 }
 
 /* Estilo del botón de inicio */
 .btn_home {
     display: inline-block;
-    padding: 15px 30px; /* Aumentado el padding para un botón más grande */
-    font-size: 16px; /* Tamaño de fuente más grande */
+    padding: 15px 30px; /* Botón más grande */
+    font-size: 16px;
     cursor: pointer;
     text-align: center;
     margin-top: 10px;
     outline: none;
-    color: #ffffff; /* Cambiado a blanco para mejor contraste */
+    color: #ffffff;
     background-color: #e0c28a;
     border: none;
-    border-radius: 25px; /* Esquinas más redondeadas */
-    box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2); /* Sombra más sutil */
-    transition: background-color 0.3s, transform 0.3s; /* Transiciones suaves */
+    border-radius: 25px;
+    box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2);
+    transition: background-color 0.3s, transform 0.3s;
+}
+.btn-create{
+    margin-left: 900px;
+    display: inline-block;
+    padding: 15px 30px; /* Botón más grande */
+    font-size: 16px;
+    cursor: pointer;
+    text-align: center;
+    margin-top: 10px;
+    outline: none;
+    color: #ffffff;
+    background-color: #e0c28a;
+    border: none;
+    border-radius: 25px;
+    box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2);
+    transition: background-color 0.3s, transform 0.3s;
+}
+.btn-create:hover{
+    background-color: #b8870c;
+
+}
+
+.btn-create:active{
+    background-color: #e0c28a;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    transform: translateY(4px);
 }
 
 .btn_home:hover {
-    background-color: #b8870c; /* Color más oscuro para hover */
+    background-color: #b8870c;
 }
 
 .btn_home:active {
-    background-color: #e0c28a; /* Color original al presionar */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Sombra más pronunciada al presionar */
-    transform: translateY(4px); /* Efecto de desplazamiento hacia abajo */
+    background-color: #e0c28a;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    transform: translateY(4px);
 }
 
 /* Estilo para la tarjeta de libros */
 .targeta-libro {
-    display: flex; /* Usar flexbox para alinear imagen y texto */
-    background-color: #ffffff; /* Fondo blanco para las tarjetas */
-    border-radius: 10px; /* Bordes redondeados */
+    display: flex;
+    background-color: #ffffff;
+    border-radius: 10px;
     width: 550px;
     height: 250px;
     margin-top: 10px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Sombra sutil */
-    transition: transform 0.3s; /* Transición para el efecto de hover */
-    overflow: hidden; /* Ocultar desbordamiento */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s;
+    overflow: hidden;
 }
 
 .texto {
     padding: 10px;
     display: flex;
     flex-direction: column;
-    justify-content: space-between; /* Espacio entre los elementos */
+    justify-content: space-between;
 }
 
 .texto h3 {
-    margin: 0; /* Eliminar márgenes del título */
+    margin: 0;
+    color: #333; /* Color más oscuro para el texto */
 }
 
 li {
     list-style-type: none;
-    margin: 5px 0; /* Espaciado vertical para elementos de la lista */
+    margin: 5px 0;
 }
 
 /* Estilo para la imagen del libro */
 .targeta-libro img {
-    width: 170px; /* Ancho fijo para la imagen */
-    height: 100%; /* Ocupa todo el alto de la tarjeta */
-    object-fit: cover; /* Recorta la imagen para que mantenga la relación de aspecto */
-    border-radius: 5px; /* Bordes redondeados para la imagen */
+    width: 170px;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 5px;
+}
+
+.button-container {
+    display: flex; /* Usar flexbox para alinear botones */
+    gap: 10px; /* Espacio entre botones */
+}
+.btn_containers{
+    display: flex; /* Usar flexbox para alinear botones */
+    gap: 10px; /* Espacio entre botones */
+}
+
+.btn {
+    flex: 1; /* Hacer que los botones ocupen el mismo espacio */
+    padding: 10px; /* Espacio interior uniforme */
+    font-size: 16px; /* Tamaño de fuente uniforme */
+    border-radius: 5px; /* Bordes redondeados */
+    cursor: pointer; /* Cambiar cursor al pasar */
+    transition: background-color 0.3s; /* Transición suave */
 }
 
 .btn-delete {
-    background-color: #e74c3c; /* Color de fondo del botón */
+    background-color: #e74c3c; /* Color de fondo para eliminar */
     color: white; /* Color del texto */
-    border: none; /* Sin borde */
-    border-radius: 5px; /* Bordes redondeados */
-    cursor: pointer; /* Cambiar cursor */
-    margin-top: 10px; /* Espaciado superior */
-    padding: 8px; /* Padding interno */
-    transition: background-color 0.3s; /* Transición de color de fondo */
 }
 
 .btn-delete:hover {
-    background-color: #612820; /* Color más oscuro para hover */
-    color: #ffffff;
+    background-color: #612820; /* Color al pasar el mouse */
 }
 
+.btn-edit {
+    background-color: #cac143; /* Color de fondo para editar */
+    color: rgb(0, 0, 0); /* Color del texto */
+}
+
+.btn-edit:hover {
+    background-color: #b8870c; /* Color al pasar el mouse */
+}
+
+
+/* Contenedor del calendario */
 .calendar-container {
-    width: 25%; /* Ajusta el ancho según sea necesario */
-    padding-left: 10px; /* Reduce el espacio entre la lista de libros y el calendario */
+    width: 25%;
+    padding-left: 10px;
 }
 
 /* Contenedor principal para alinear lista de libros y calendario */
@@ -101,18 +150,68 @@ li {
     display: flex;
     justify-content: space-between;
     align-items: flex-start;
-    gap: 10px; /* Reduce el espacio entre la lista de libros y el calendario */
+    gap: 20px;
 }
 
-/* Estilos personalizados para el calendario */
+
+/* Estilos personalizados para el calendario *//* Estilos personalizados para el calendario */
 .custom-calendar {
     width: 100%;
-    max-width: 300px;
-    background-color: #f9f9f9;
-    border: 1px solid #ddd;
-    border-radius: 8px;
-    padding: 10px;
-    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    max-width: 320px; /* Ancho del calendario */
+    background-color: #ffffff; /* Fondo blanco */
+    border-radius: 8px; /* Bordes suaves */
+    padding: 15px; /* Espacio interior */
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1); /* Sombra sutil */
+    text-align: center; /* Centrar contenido */
 }
 
-/* Resto de estilos para el calendario ... */
+/* Estilo para los días de la semana */
+.react-calendar__month-view__days__day {
+    border-radius: 4px; /* Bordes redondeados */
+    transition: background-color 0.2s;
+    padding: 10px; /* Espacio interno */
+    color: #444; /* Color de texto */
+}
+
+/* Estilo para los días seleccionados */
+.react-calendar__tile--active {
+    background-color: #4caf50; /* Verde para días seleccionados */
+    color: white; /* Texto blanco */
+}
+
+/* Estilo para los días en hover */
+.react-calendar__tile:hover {
+    background-color: #e8f5e9; /* Verde claro al pasar el mouse */
+    color: #333; /* Color oscuro */
+}
+
+/* Estilo para los botones del calendario */
+.react-calendar__navigation button {
+    background-color: transparent; /* Fondo transparente */
+    color: #007bff; /* Color azul */
+    border: none; /* Sin borde */
+    border-radius: 4px; /* Bordes redondeados */
+    padding: 10px; /* Espaciado interno */
+    cursor: pointer;
+    transition: color 0.2s;
+}
+
+.react-calendar__navigation button:hover {
+    color: #0056b3; /* Azul más oscuro al pasar el mouse */
+}
+
+.react-calendar__navigation button:disabled {
+    color: #b0b0b0; /* Botones deshabilitados */
+}
+
+/* Estilo para el encabezado del calendario */
+.react-calendar__navigation {
+    margin-bottom: 10px; /* Espaciado inferior */
+}
+
+/* Estilo de la cabecera del mes */
+.react-calendar__month-view__header {
+    font-size: 1.2em; /* Tamaño de fuente */
+    color: #333; /* Color oscuro */
+    margin-bottom: 10px; /* Espaciado inferior */
+}

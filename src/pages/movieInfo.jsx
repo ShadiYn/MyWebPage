@@ -55,7 +55,7 @@ const MovieInfo = () => {
     return (
 
         
-        <div className="container">
+        <div className="">
             <ul>
                 <li><Link to="/">Home page</Link></li>
             </ul>
