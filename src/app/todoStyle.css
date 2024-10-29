@@ -1,0 +1,234 @@
+/* Archivo CSS, por ejemplo TodoList.css */
+
+.DoList-container {
+    max-width: 500px;
+    margin: 0 auto;
+    padding: 20px;
+    height: auto;
+    margin-top: 20px;
+    border-radius: 10px;
+    background-color: rgba(255, 255, 255, 0.95);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+.DoList-container h2 {
+    text-align: center;
+    font-size: 2rem;
+    color: #333;
+    margin-bottom: 20px;
+    font-weight: 600;
+}
+
+.todo-item {
+    padding: 15px;
+    margin-bottom: 10px;
+    background-color: #f4e3eb;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s ease, background-color 0.3s ease;
+}
+
+.todo-item:hover {
+    transform: scale(1.02);
+    background-color: #e1b7c4;
+}
+
+.todo-item.completed {
+    background-color: #d1f5d1; /* Color para tareas completadas */
+    text-decoration: line-through; /* Tachado */
+}
+
+.todo-title {
+    font-size: 1.6rem;
+    font-weight: bold;
+    color: #222;
+}
+
+.todo-description {
+    font-size: 1rem;
+    color: #555;
+}
+
+.add-todo-button {
+    display: block;
+    margin: 10px auto 20px;
+    padding: 10px 20px;
+    font-size: 1rem;
+    color: #ffffff;
+    background-color: #e0c28a;
+    border: none;
+    border-radius: 25px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.add-todo-button:hover {
+    background-color: #b8870c;
+    transform: scale(1.05);
+}
+
+.todo-form-card {
+    background-color: #f4e3eb;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+}
+
+.todo-form-card form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.todo-form-card input, .todo-form-card textarea {
+    padding: 10px;
+    background-color: #ffffff;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 1rem;
+    width: 100%;
+    transition: border-color 0.3s ease;
+}
+
+.todo-form-card input:focus, .todo-form-card textarea:focus {
+    border-color: #7a7552; /* Color del borde al enfocar */
+    outline: none;
+}
+
+.todo-form-card button {
+    padding: 10px;
+    background-color: #7a7552;
+    color: #fff;
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.todo-form-card button:hover {
+    background-color: #a6a074;
+    transform: scale(1.05);
+}
+
+/* Formulario de edición */
+.todo-form-card-edit {
+    background-color: #f4e3eb;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+}
+
+.todo-form-card-edit form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.todo-form-card-edit input, .todo-form-card-edit textarea {
+    padding: 10px;
+    background-color: #ffffff;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 1rem;
+    width: 100%;
+}
+
+.todo-form-card-edit button {
+    padding: 10px;
+    background-color: #7a7552;
+    color: #fff;
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.todo-form-card-edit button:hover {
+    background-color: #a6a074;
+    transform: scale(1.05);
+}
+
+
+
+.todo-item {
+    padding: 15px;
+    margin-bottom: 10px;
+    background-color: #f4e3eb; /* Color de fondo suave */
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    position: relative; /* Para el efecto hover */
+}
+
+.todo-item:hover {
+    transform: translateY(-2px); /* Sutil efecto de elevación */
+    background-color: #e1b7c4; /* Color más oscuro al pasar el mouse */
+}
+
+.todo-item.completed {
+    background-color: #809080; /* Color para tareas completadas */
+    text-decoration: line-through; /* Tachado */
+    opacity: 0.4; /* Opacidad reducida */
+}
+
+.todo-title {
+    font-size: 1.6rem;
+    font-weight: bold;
+    color: #222;
+}
+
+.todo-description {
+    font-size: 1rem;
+    color: #555;
+    margin: 5px 0 15px; /* Espaciado para mejor claridad */
+}
+
+.button-container {
+    display: flex;
+    justify-content: space-between; /* Espacio entre botones */
+    margin-top: 10px;
+}
+
+.button {
+    padding: 10px 15px; /* Espaciado más sencillo */
+    border: none;
+    border-radius: 5px; /* Bordes ligeramente redondeados */
+    cursor: pointer;
+    font-weight: 600; /* Texto más destacado */
+    font-size: 0.9rem; /* Tamaño de fuente ajustado */
+    transition: background-color 0.3s ease; /* Transición para el color de fondo */
+    color: #fff; /* Color del texto blanco */
+}
+
+.edit-button {
+    background-color: #acc7e3; /* Color azul */
+}
+
+.edit-button:hover {
+    background-color: #91a1b1; /* Azul más oscuro al pasar el mouse */
+}
+
+.complete-button {
+    background-color: #95b59d; /* Color verde */
+}
+
+.complete-button:hover {
+    background-color: #243327; /* Verde más oscuro al pasar el mouse */
+}
+
+.delete-button {
+    background-color: #190406; /* Color rojo */
+}
+
+.delete-button:hover {
+    background-color: #311619; /* Rojo más oscuro al pasar el mouse */
+}
+
+/* Asegúrate de que los botones se mantengan dentro de la tarjeta */
+.button-container {
+    display: flex;
+    justify-content: space-between; /* Espaciado entre botones */
+    margin-top: 10px; /* Espaciado superior */
+}

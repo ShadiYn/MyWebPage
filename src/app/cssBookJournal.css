@@ -1,7 +1,7 @@
 body {
-    background-image: url(../app/pretty_bg.jfif);
+    background-image: url(../app/background_2.jpg);
     margin: 0;
-    font-family: 'Verdana', 'Geneva', 'Tahoma', sans-serif;
+    font-family: cinzel;
     padding: 20px; /* Espacio alrededor */
 }
 
@@ -10,6 +10,12 @@ body {
     margin-bottom: 50px;
     font-size: 50px;
     color: #372713; /* Color más oscuro para el título */
+}
+.DoList-container{
+    background-color: #fffffff2;
+    border-radius: 15px;
+    height: 500px;
+    margin-top: 20px;
 }
 
 /* Estilo del botón de inicio */
@@ -69,7 +75,7 @@ body {
 /* Estilo para la tarjeta de libros */
 .targeta-libro {
     display: flex;
-    background-color: #ffffffbe;
+    background-color: #ffffffe6;
     border-radius: 10px;
     width: 550px;
     height: 250px;
@@ -162,7 +168,7 @@ li {
 .custom-calendar {
     width: 100%;
     max-width: 430px; /* Ancho del calendario */
-    background-color: #ffffffb2;
+    background-color: #ffffffed;
      /* Fondo blanco */
     border-radius: 15px; /* Bordes suaves */
     padding: 15px; /* Espacio interior */

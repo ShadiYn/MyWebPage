@@ -14,6 +14,7 @@ const Home = ()=>{
     }
 
 
+    
     return(
         <div>
             <button onClick={handleMovies}>Movies Info</button>
