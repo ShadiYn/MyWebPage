@@ -5,7 +5,6 @@ import { deleteBook, getBooks } from '../services/BookItem';
 import '../app/cssBookJournal.css';
 import Calendar from 'react-calendar';
 import { createTodo, deleteTodo, getList, updateTodo } from '../services/todoItem'; 
-import '../app/todoStyle.css';
 
 const Bookjournal = () => {
     const [books, setBooks] = useState([]);
@@ -170,7 +169,7 @@ const Bookjournal = () => {
                         <div>
                             <h2>To do List</h2>
                             <button className="add-todo-button" onClick={() => setShowForm(!showForm)}>
-                                {showForm ? 'Cerrar' : '✍Añadir'}
+                                {showForm ? 'Cerrar' : 'Añadir'}
                             </button>
                         </div>
 
@@ -203,11 +202,11 @@ const Bookjournal = () => {
             <p className="todo-title">{todo.title}</p>
             <p className="todo-description">{todo.description}</p>
             <div className='button-container'>
-                <button className='button edit-button' onClick={() => handleEdit(todo)}>✏️ Editar</button>
-                <button className='button complete-button' onClick={() => handleComplete(todo.id)}>
-                    {todo.completed ? '🔄 Revertir' : '✔️ Completar'}
+                <button className='button-edit' onClick={() => handleEdit(todo)}>Editar</button>
+                <button className='button-complete' onClick={() => handleComplete(todo.id)}>
+                    {todo.completed ? 'Revertir' : 'Completar'}
                 </button>
-                <button className='button delete-button' onClick={() => handleDelete(todo.id)}>🗑️ Eliminar</button>
+                <button className='button-delete' onClick={() => handleDelete(todo.id)}>Eliminar</button>
             </div>
         </div>
     ))}
