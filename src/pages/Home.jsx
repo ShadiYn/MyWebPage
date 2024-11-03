@@ -10,6 +10,9 @@ const Home = ()=>{
         navigate('/movieInfo');
     }
 
+        const handleMensajes = ()=>{
+            navigate('/mensajes');
+        }
 
 
     return(
@@ -18,9 +21,9 @@ const Home = ()=>{
             <div className='buttons-div'>
             <button onClick={handleMovies}>Movies Info</button>
             <button  onClick={handleBook}>Book Journal</button>  
+            <button onClick={handleMensajes}>Mensajes</button>
             </div>
-           
-
+        
         </div>
     )
 }

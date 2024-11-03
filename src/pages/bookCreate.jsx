@@ -28,7 +28,6 @@ const BookCreate = () => {
             finish_Date: finishDate,
             pages: parseInt(pages),
             rating: parseFloat(rating),
-            user: { id: 1 } // Asegúrate de que el usuario con ID 1 existe en la base de datos
         };
 
         formData.append("file", imageFile);

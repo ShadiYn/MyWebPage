@@ -1,15 +1,14 @@
 // src/components/Bookjournal.js
 import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { deleteBook, getBooks } from '../services/BookItem'; 
+import { deleteBook, getBooks } from '../services/BookItem';
 import '../app/cssBookJournal.css';
-import Calendar from 'react-calendar';
-import { createTodo, deleteTodo, getList, updateTodo } from '../services/todoItem'; 
+import { createTodo, deleteTodo, getList, updateTodo } from '../services/todoItem';
 
 const Bookjournal = () => {
     const [books, setBooks] = useState([]);
     const navigate = useNavigate();
-    const [date, setDate] = useState(new Date());
+
     const [list, setList] = useState([]);
     const [showForm, setShowForm] = useState(false);
     const [newTodo, setNewTodo] = useState({ title: '', description: '' });
@@ -35,16 +34,16 @@ const Bookjournal = () => {
     const handleComplete = async (id) => {
         try {
             const todoToUpdate = list.find(todo => todo.id === id);
-            const updatedTodo = { ...todoToUpdate, completed: !todoToUpdate.completed }; // Alternar estado completado
+            const updatedTodo = { ...todoToUpdate, completed: !todoToUpdate.completed };
             await updateTodo(updatedTodo);
-            setList(list.map((todo) => (todo.id === id ? updatedTodo : todo))); // Actualiza la lista
+            setList(list.map((todo) => (todo.id === id ? updatedTodo : todo)));
         } catch (error) {
             console.error('Error al completar la tarea:', error);
         }
     };
 
     useEffect(() => {
-        fetchList(); // Cargar la lista de tareas al iniciar el componente
+        fetchList();
     }, []);
 
     const handleInputChange = (e) => {
@@ -61,7 +60,7 @@ const Bookjournal = () => {
                 setList(list.map((todo) => (todo.id === editingTodoId ? updatedTodo : todo)));
             } else {
                 const response = await createTodo(newTodo);
-                setList([...list, { ...response.data, completed: false }]); // Inicializar como no completada
+                setList([...list, { ...response.data, completed: false }]);
             }
             setNewTodo({ title: '', description: '' });
             setShowForm(false);
@@ -103,31 +102,31 @@ const Bookjournal = () => {
     };
 
     return (
-        <div>
-            <div className='btn_containers'>
+        <div className="bookjournal-container">
+            <div className="btn_containers">
                 <button className="btn_home" onClick={handleClick}>🏠 Home</button>
                 <button className="btn-create" onClick={gotCreate}>📚 Crear Libro</button>
             </div>
 
-            <h1 className="titulo">Book List</h1>
+            <h1 className="titulo">My Book Journal</h1>
 
             <div className="content-container">
-                <div className='lista-Libros'>
+                <div className="lista-Libros">
                     {books.length === 0 ? (
                         <p>No hay libros disponibles. Crea uno nuevo.</p>
                     ) : (
                         books.map((book, index) => (
-                            <div className='targeta-libro' key={index}>
-                                <img className='img' src={'http://localhost:8080/' + book.imageUrl} alt={book.imageUrl} />
-                                <div className='texto'>
+                            <div className="targeta-libro" key={index}>
+                                <img className="img" src={'http://localhost:8080/' + book.imageUrl} alt={book.imageUrl} />
+                                <div className="texto">
                                     <h3>{book.title}</h3>
-                                    <ul className='lista_texto'>
+                                    <ul className="lista_texto">
                                         <li>Autor: {book.author}</li>
                                         <li>Páginas: {book.pages}</li>
                                         <li>Calificación: {book.rating} <i className="fa fa-star"></i></li>
                                     </ul>
                                     <div className="button-container">
-                                        <button type="button" onClick={() => handleDeleteBook(book.id)} className="btn btn-delete">Delete</button>
+                                        <button type="button" onClick={() => handleDeleteBook(book.id)} className="btn-delete">Delete</button>
                                     </div>
                                 </div>
                             </div>
@@ -135,39 +134,12 @@ const Bookjournal = () => {
                     )}
                 </div>
 
-                <div className='calendar-container'>
-                    <Calendar
-                        onChange={setDate}
-                        value={date}
-                        tileContent={({ date }) => {
-                            const matchingBooks = books.filter(
-                                (book) =>
-                                    (book.start_Date && new Date(book.start_Date).toDateString() === date.toDateString()) ||
-                                    (book.finish_Date && new Date(book.finish_Date).toDateString() === date.toDateString())
-                            );
-
-                            return (
-                                <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', gap: '2px' }}>
-                                    {matchingBooks.map((book, index) => (
-                                        <div
-                                            key={index}
-                                            style={{
-                                                backgroundColor: book.highlightColor,
-                                                borderRadius: '50%',
-                                                width: '8px',
-                                                height: '8px',
-                                            }}
-                                        ></div>
-                                    ))}
-                                </div>
-                            );
-                        }}
-                        className="custom-calendar"
-                    />
+                <div className="calendar-container">
+                
 
                     <div className="DoList-container">
-                        <div>
-                            <h2>To do List</h2>
+                        <div className="todo-header">
+                            <h2>To-do List</h2>
                             <button className="add-todo-button" onClick={() => setShowForm(!showForm)}>
                                 {showForm ? 'Cerrar' : 'Añadir'}
                             </button>
@@ -196,22 +168,23 @@ const Bookjournal = () => {
                             </div>
                         )}
 
-<div>
-    {list.map((todo) => (
-        <div key={todo.id} className={`todo-item ${todo.completed ? 'completed' : ''}`}>
-            <p className="todo-title">{todo.title}</p>
-            <p className="todo-description">{todo.description}</p>
-            <div className='button-container'>
-                <button className='button-edit' onClick={() => handleEdit(todo)}>Editar</button>
-                <button className='button-complete' onClick={() => handleComplete(todo.id)}>
-                    {todo.completed ? 'Revertir' : 'Completar'}
-                </button>
-                <button className='button-delete' onClick={() => handleDelete(todo.id)}>Eliminar</button>
-            </div>
-        </div>
-    ))}
-</div>
-
+                        <div className="todo-list">
+                            {list.map((todo) => (
+                                <div key={todo.id} className={`todo-item ${todo.completed ? 'completed' : ''}`}>
+                                    <div className="todo-main">
+                                        <p className="todo-title">{todo.title}</p>
+                                        <p className="todo-description">{todo.description}</p>
+                                    </div>
+                                    <div className="todo-actions">
+                                        <button className="button-edit" onClick={() => handleEdit(todo)}>✏️</button>
+                                        <button className="button-complete" onClick={() => handleComplete(todo.id)}>
+                                            {todo.completed ? '↩️' : '✔️'}
+                                        </button>
+                                        <button className="button-delete" onClick={() => handleDelete(todo.id)}>🗑️</button>
+                                    </div>
+                                </div>
+                            ))}
+                        </div>
                     </div>
                 </div>
             </div>
