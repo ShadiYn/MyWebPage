@@ -53,3 +53,18 @@ export const sendMessage = async (mensaje) => {
         },
     });
 };
+
+// servicios/mensajes.js
+export async function getContacts(userId) {
+    try {
+        const response = await fetch(`/api/contacts?userId=${userId}`);
+        const data = await response.json();
+        return Array.isArray(data) ? data : []; // Retorna un array vacío si no es un array
+    } catch (error) {
+        console.error("Error en getContacts:", error);
+        return []; // Retorna un array vacío en caso de error
+    }
+}
+
+
+

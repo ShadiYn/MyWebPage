@@ -37,7 +37,6 @@ function Mensajes() {
             ) : (
                 <div className="chat-area">
                     <h2>Bienvenido, {userName}</h2>
-                    <h3>Escribe un mensaje o selecciona un chat</h3>
                     <SeeMessages userId={userId} selectedUser={selectedUser} />
                     <WriteMessages userId={userId} destinatario={selectedUser} />
                 </div>
