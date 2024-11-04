@@ -1,0 +1,18 @@
+/* src/pages/WriteMessage.css */
+textarea {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    resize: none; /* Evita que el usuario cambie el tamaño del textarea */
+}
+
+textarea::placeholder {
+    color: #aaa; /* Color del placeholder */
+}
+
+h3 {
+    text-align: center;
+    color: #333;
+}

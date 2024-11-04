@@ -1,0 +1,17 @@
+/* src/pages/SeeMessages.css */
+ul {
+    list-style: none;
+    padding: 0;
+}
+
+li {
+    background: #f8f9fa;
+    margin: 10px 0;
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+strong {
+    color: #007bff; /* Color para el remitente */
+}
