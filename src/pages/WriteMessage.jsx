@@ -1,59 +1,95 @@
-// src/components/writemessages.jsx
-import { useState } from 'react';
-import * as api from '../services/mensajes';
-import {useNavigate} from 'react-router-dom';
+import { useState, useEffect } from 'react';
+import axios from 'axios';
 
-function WriteMessages({ userId }) {
-    const [texto, setTexto] = useState('');
-    const [destinatarioNombre, setDestinatarioNombre] = useState('');
-    const navigate = useNavigate();
+function WriteMessage() {
+    const [mensaje, setMensaje] = useState('');
+    const [recipientId, setRecipientId] = useState(''); // ID del destinatario
+    const [usuarios, setUsuarios] = useState([]); // Lista de usuarios
+    const [status, setStatus] = useState('');
 
-    const handleSendMessage = async () => {
-        try {
-            const destinatarioId = await api.getUserIdByName(destinatarioNombre);
-            
-            if (destinatarioId) {
-                // Crear el objeto mensaje con el remitente y el destinatario
-                const mensaje = {
-                    texto: texto,
-                    remitente: { id: userId },
-                    destinatario: { id: destinatarioId },
-                };
-                
-                // Enviar el mensaje
-                await api.sendMessage(mensaje);
-                setTexto('');
-                setDestinatarioNombre('');
-                alert('Mensaje enviado con éxito');
-            } else {
-                alert('Destinatario no encontrado');
+    // Obtener la lista de usuarios cuando se monta el componente
+    useEffect(() => {
+        const fetchUsuarios = async () => {
+            try {
+                const response = await axios.get('http://localhost:8080/user/all');
+                setUsuarios(response.data); // Guardamos la lista de usuarios
+            } catch (error) {
+                console.error('Error al obtener los usuarios:', error);
             }
+        };
+
+        fetchUsuarios();
+    }, []);
+
+    const handleChange = (event) => {
+        setMensaje(event.target.value);
+    };
+
+    const handleRecipientChange = (event) => {
+        setRecipientId(event.target.value); // Establecer el destinatario
+    };
+    const handleSubmit = async (event) => {
+        event.preventDefault();
+    
+        const userId = localStorage.getItem('userId');
+        const newMessage = {
+            remitenteId: userId,
+            destinatarioId: recipientId,
+            texto: mensaje
+        };
+    
+        // Validar que los campos no estén vacíos
+        if (!newMessage.remitenteId.trim() || !newMessage.destinatarioId.trim() || !newMessage.texto.trim()) {
+            alert('Los campos no pueden estar vacíos');
+            return;
+        }
+    
+        console.log("Mensaje que se va a enviar:", newMessage);
+    
+        try {
+            await axios.post('http://localhost:8080/message', newMessage);
+            setStatus('Mensaje enviado correctamente');
+            setMensaje('');
         } catch (error) {
-            console.error("Error al enviar el mensaje:", error);
-            alert("No se pudo enviar el mensaje");
+            setStatus('Error al enviar el mensaje');
+            console.error('Error al enviar el mensaje:', error);
         }
     };
-   const handleHome = ()=>{
-      navigate('/');
-    }
+    
+    
+    
+    
 
     return (
         <div>
-            <h3>Enviar Mensaje</h3>
-            <input
-                type="text"
-                placeholder="Nombre del destinatario"
-                value={destinatarioNombre}
-                onChange={(e) => setDestinatarioNombre(e.target.value)}
-            />
-            <textarea
-                placeholder="Escribe tu mensaje"
-                value={texto}
-                onChange={(e) => setTexto(e.target.value)}
-            />
-            <button onClick={handleSendMessage}>Enviar</button>
+            <h2>Enviar mensaje</h2>
+            <form onSubmit={handleSubmit}>
+                <div>
+                    <label>
+                        Selecciona destinatario:
+                                <select value={recipientId} onChange={handleRecipientChange} required>
+                                <option value="">Selecciona un usuario</option>
+                                {usuarios.map((usuario) => (
+                                    <option key={usuario.id} value={usuario.id}>
+                                        {usuario.nombre}
+                                    </option>
+                                ))}
+                        </select>
+
+
+                    </label>
+                </div>
+                <div>
+                    <label>
+                        Escribe tu mensaje:
+                        <textarea value={mensaje} onChange={handleChange} required />
+                    </label>
+                </div>
+                <button type="submit">Enviar</button>
+            </form>
+            {status && <p>{status}</p>}
         </div>
     );
 }
 
-export default WriteMessages;
+export default WriteMessage;

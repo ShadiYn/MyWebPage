@@ -1,17 +1,86 @@
-/* src/pages/SeeMessages.css */
-ul {
-    list-style: none;
-    padding: 0;
+/* Archivo: seeMessages.css */
+
+/* Contenedor principal de los mensajes solo para SeeMessages */
+.see-messages-container {
+    padding: 20px;
+    max-width: 800px;
+    margin: 0 auto;
 }
 
-li {
-    background: #f8f9fa;
-    margin: 10px 0;
-    padding: 15px;
+/* Estilo para el título de la página */
+.see-messages-container h2 {
+    text-align: center;
+    color: #333;
+    font-size: 2rem;
+    margin-bottom: 20px;
+}
+
+/* Estilo para los mensajes */
+.see-messages-container .mensaje {
+    background-color: #fff;
     border-radius: 8px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    padding: 15px;
+    margin-bottom: 15px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-strong {
-    color: #007bff; /* Color para el remitente */
+/* Efecto de hover en los mensajes */
+.see-messages-container .mensaje:hover {
+    transform: scale(1.03);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+/* Estilo del nombre del remitente */
+.see-messages-container .mensaje p:first-child {
+    font-weight: bold;
+    color: #333;
+}
+
+/* Estilo para el texto del mensaje */
+.see-messages-container .mensaje p:last-child {
+    font-size: 1.1rem;
+    color: #555;
+    margin-top: 10px;
+}
+
+/* Estilo para el botón de regreso */
+.see-messages-container button {
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin-bottom: 20px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Efecto de hover en el botón */
+.see-messages-container button:hover {
+    background-color: #45a049;
+}
+
+/* Estilo para el mensaje de "no hay mensajes" */
+.see-messages-container p {
+    text-align: center;
+    font-size: 1.2rem;
+    color: #888;
+}
+
+/* Responsividad para pantallas pequeñas */
+@media (max-width: 600px) {
+    .see-messages-container .mensaje {
+        padding: 12px;
+    }
+
+    .see-messages-container button {
+        width: 100%;
+        padding: 12px;
+        font-size: 1.2rem;
+    }
 }

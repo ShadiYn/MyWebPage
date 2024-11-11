@@ -3,66 +3,71 @@ import axios from 'axios';
 
 const API_BASE_URL = 'http://localhost:8080';
 
-// Autenticar o registrar un usuario
-export const loginUser = async (nombre) => {
-    const response = await axios.get(`${API_BASE_URL}/user/${nombre}`);
-    return response.data; // Retorna el ID del usuario
-};
+export async function loginUser(nombre, contraseña) {
+    try {
+        const response = await axios.post('http://localhost:8080/user/login', {
+            nombre: nombre,
+            contraseña: contraseña
+        });
+        return response.data; // Suponiendo que la respuesta sea el ID del usuario
+    } catch (error) {
+        console.error('Error al hacer el login:', error); // Aquí capturamos el error
+        throw error; // Re-lanzamos el error para que lo maneje el componente
+    }
+}
 
-// Obtener el ID de un usuario por nombre
 export const getUserIdByName = async (nombre) => {
     const response = await axios.get(`${API_BASE_URL}/user/${nombre}`);
-    return response.data; // Retorna el ID del usuario
-};
-// src/services/mensajes.js
-export const getUsersChattedWith = async (userId) => {
-    // Aquí harías la llamada a la API para obtener la lista de usuarios
-    const response = await fetch(`/api/users/chatted/${userId}`);
-    if (!response.ok) {
-        throw new Error('Error al obtener los usuarios chateados');
-    }
-    return await response.json(); // Asumiendo que devuelve una lista de usuarios
-};
-
-// Asegúrate de tener una función para obtener mensajes entre dos usuarios
-export const getMessagesByUserIdAndRecipient = async (userId, recipientId) => {
-    const response = await fetch(`/api/messages/${userId}/${recipientId}`);
-    if (!response.ok) {
-        throw new Error('Error al cargar los mensajes');
-    }
-    return await response.json();
+    return response.data; 
 };
 
 
-// Obtener mensajes por ID de usuario
+
+
+
 export const getMessagesByUserId = async (userId) => {
     try {
         const response = await axios.get(`${API_BASE_URL}/message/${userId}`);
-        return response.data; // Devuelve los datos obtenidos
+        console.log("Respuesta de la API:", response); // Verifica la respuesta completa
+        return response.data; // Verifica que `data` contiene la lista de mensajes
     } catch (error) {
-        console.error('Error al obtener los mensajes:', error);
+        console.error('Error al obtener los mensajes:', error.response ? error.response.data : error.message);
         throw error;
     }
 };
 
-// Enviar un nuevo mensaje
+
+
+
+
+// src/services/mensajes.js
+
+
+// src/services/mensajes.js (ya modificado antes para registrar)
+
+export const registerUser = async (nombre, contraseña) => {
+    const response = await axios.post(`${API_BASE_URL}/user/register`, { nombre, contraseña });
+    return response.data;
+};
+
+
+
 export const sendMessage = async (mensaje) => {
     await axios.post(`${API_BASE_URL}/message`, mensaje, {
         headers: {
-            'Content-Type': 'application/json',  // Especificar el tipo de contenido como JSON
+            'Content-Type': 'application/json',  
         },
     });
 };
 
-// servicios/mensajes.js
 export async function getContacts(userId) {
     try {
         const response = await fetch(`/api/contacts?userId=${userId}`);
         const data = await response.json();
-        return Array.isArray(data) ? data : []; // Retorna un array vacío si no es un array
+        return Array.isArray(data) ? data : []; 
     } catch (error) {
         console.error("Error en getContacts:", error);
-        return []; // Retorna un array vacío en caso de error
+        return [];
     }
 }
 

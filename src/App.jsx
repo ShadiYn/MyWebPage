@@ -1,10 +1,12 @@
+import { useState } from 'react';
 import Router from '../src/app/Router'
 
 function App() {
+  const [userId, setUserId] = useState(null);
 
   return (
     <>
-    <Router/>
+        <Router userId={userId} setUserId={setUserId} />
        
     </>
   )

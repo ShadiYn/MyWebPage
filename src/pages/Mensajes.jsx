@@ -1,46 +1,73 @@
-// src/Mensajes.js
+// src/pages/Mensajes.jsx
 import { useState } from 'react';
-import * as api from '../services/mensajes';
-import SeeMessages from '../pages/SeeMessages';
-import WriteMessages from '../pages/WriteMessage';
-import {useNavigate} from 'react-router-dom';
-import '../app/Mensaje.css'; // Importamos el CSS
+import { loginUser, registerUser } from '../services/mensajes';
+import { useNavigate } from 'react-router-dom';
+import '../app/Mensaje.css';
 
-function Mensajes() {
-    const [userId, setUserId] = useState(null);
-    const [userName, setUserName] = useState('');
-    const [selectedUser, setSelectedUser] = useState(''); // Usuario seleccionado
+function Mensajes({ setUserId }) {
+    const [nombre, setNombre] = useState('');
+    const [contraseña, setContraseña] = useState('');
     const navigate = useNavigate();
 
     const handleLogin = async () => {
-        const id = await api.loginUser(userName);
-        setUserId(id);
+        try {
+            const userId = await loginUser(nombre, contraseña);
+            if (userId) {
+                // Guarda el userId en el localStorage
+                localStorage.setItem('userId', userId);
+                setUserId(userId);
+                navigate('/SeeMessages'); // Redirige a la vista de mensajes
+            } else {
+                alert('Usuario o contraseña incorrectos');
+            }
+        } catch (error) {
+            console.error("Error en el login:", error);
+            alert("No se pudo iniciar sesión");
+        }
     };
-      const handleHome = ()=>{
-      navigate('/');
+    const handleHome=()=>{
+        navigate('/')
     }
 
+    const handleRegister = async () => {
+        try {
+            const userId = await registerUser(nombre, contraseña);
+            if (userId) {
+                alert('Registro exitoso. Ahora puedes iniciar sesión.');
+            } else {
+                alert('El nombre de usuario ya está en uso.');
+            }
+        } catch (error) {
+            console.error("Error en el registro:", error);
+            alert("No se pudo registrar el usuario.");
+        }
+    };
+
     return (
-        <div className="Mensajes">
-          <button onClick={handleHome}>Home</button>
-            {!userId ? (
-                <div className="login-section">
-                    <input
-                        type="text"
-                        placeholder="Ingrese su nombre"
-                        value={userName}
-                        onChange={(e) => setUserName(e.target.value)}
-                        className="login-input"
-                    />
-                    <button onClick={handleLogin} className="login-button">Iniciar Sesión</button>
+        
+        <div className="auth-container">
+            <button onClick={handleHome}>Home</button>
+            <div className="auth-card">
+                <h3 className="auth-title">Iniciar Sesión</h3>
+                <input
+                    type="text"
+                    className="auth-input"
+                    placeholder="Nombre de usuario"
+                    value={nombre}
+                    onChange={(e) => setNombre(e.target.value)}
+                />
+                <input
+                    type="password"
+                    className="auth-input"
+                    placeholder="Contraseña"
+                    value={contraseña}
+                    onChange={(e) => setContraseña(e.target.value)}
+                />
+                <div className="auth-actions">
+                    <button className="auth-button" onClick={handleLogin}>Iniciar Sesión</button>
+                    <button className="auth-button" onClick={handleRegister}>Registrarse</button>
                 </div>
-            ) : (
-                <div className="chat-area">
-                    <h2>Bienvenido, {userName}</h2>
-                    <SeeMessages userId={userId} selectedUser={selectedUser} />
-                    <WriteMessages userId={userId} destinatario={selectedUser} />
-                </div>
-            )}
+            </div>
         </div>
     );
 }
